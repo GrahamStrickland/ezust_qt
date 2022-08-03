@@ -12,9 +12,9 @@ MAKEFILE      = Makefile
 
 CC            = /Library/Developer/CommandLineTools/usr/bin/gcc
 CXX           = /Library/Developer/CommandLineTools/usr/bin/g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I. -I. -I/Users/grahamstrickland/opt/anaconda3/include/qt -I/Users/grahamstrickland/opt/anaconda3/include/qt/QtWidgets -I/Users/grahamstrickland/opt/anaconda3/include/qt/QtGui -I/Users/grahamstrickland/opt/anaconda3/include/qt/QtCore -I.moc -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/grahamstrickland/opt/anaconda3/mkspecs/macx-g++
 QMAKE         = /Users/grahamstrickland/opt/anaconda3/bin/qmake
 DEL_FILE      = rm -f
@@ -38,7 +38,7 @@ DISTNAME      = ex8_81.0.0
 DISTDIR = /Users/grahamstrickland/Documents/university/unisa/bsc98801mcs/2022/cos2614/exercises/ch08/ex8_8/.obj/ex8_81.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/g++
 LFLAGS        = -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/grahamstrickland/opt/anaconda3/lib
-LIBS          = $(SUBLIBS) -L/Users/grahamstrickland/opt/anaconda3/lib -lQt5Widgets_debug -lQt5Gui_debug -lQt5Core_debug -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -L/Users/grahamstrickland/opt/anaconda3/lib -lQt5Widgets -framework DiskArbitration -framework IOKit -lQt5Gui -lQt5Core -framework OpenGL -framework AGL 
 AR            = /Library/Developer/CommandLineTools/usr/bin/ar cq
 RANLIB        = /Library/Developer/CommandLineTools/usr/bin/ranlib -s
 SED           = sed
@@ -453,7 +453,10 @@ Makefile: ex8_8.pro /Users/grahamstrickland/opt/anaconda3/mkspecs/macx-g++/qmake
 		/Users/grahamstrickland/opt/anaconda3/mkspecs/features/exceptions.prf \
 		/Users/grahamstrickland/opt/anaconda3/mkspecs/features/yacc.prf \
 		/Users/grahamstrickland/opt/anaconda3/mkspecs/features/lex.prf \
-		ex8_8.pro
+		ex8_8.pro \
+		/Users/grahamstrickland/opt/anaconda3/lib/libQt5Widgets.prl \
+		/Users/grahamstrickland/opt/anaconda3/lib/libQt5Gui.prl \
+		/Users/grahamstrickland/opt/anaconda3/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ex8_8.pro -spec macx-g++
 /Users/grahamstrickland/opt/anaconda3/mkspecs/features/spec_pre.prf:
 /Users/grahamstrickland/opt/anaconda3/mkspecs/qdevice.pri:
@@ -641,6 +644,9 @@ Makefile: ex8_8.pro /Users/grahamstrickland/opt/anaconda3/mkspecs/macx-g++/qmake
 /Users/grahamstrickland/opt/anaconda3/mkspecs/features/yacc.prf:
 /Users/grahamstrickland/opt/anaconda3/mkspecs/features/lex.prf:
 ex8_8.pro:
+/Users/grahamstrickland/opt/anaconda3/lib/libQt5Widgets.prl:
+/Users/grahamstrickland/opt/anaconda3/lib/libQt5Gui.prl:
+/Users/grahamstrickland/opt/anaconda3/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ex8_8.pro -spec macx-g++
 
@@ -687,7 +693,7 @@ compiler_moc_predefs_make_all: .moc/moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) .moc/moc_predefs.h
 .moc/moc_predefs.h: /Users/grahamstrickland/opt/anaconda3/mkspecs/features/data/dummy.cpp
-	/Library/Developer/CommandLineTools/usr/bin/g++ -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o .moc/moc_predefs.h /Users/grahamstrickland/opt/anaconda3/mkspecs/features/data/dummy.cpp
+	/Library/Developer/CommandLineTools/usr/bin/g++ -pipe -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o .moc/moc_predefs.h /Users/grahamstrickland/opt/anaconda3/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: .moc/moc_contact.cpp .moc/moc_contactlist.cpp
 compiler_moc_header_clean:

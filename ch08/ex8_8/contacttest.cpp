@@ -1,4 +1,5 @@
-// This is a driver program to test the ADT Contact.
+// This is a driver program to test the ADT ContactFactory and its
+// associated ADT's.
 
 #include <QTextStream>
 #include "contactfactory.h"
@@ -8,7 +9,7 @@ int main()
     QTextStream cout(stdout);
     QStringList phoneList, mailingList;
 
-    ContactList *list1 = 0;
+    ContactList *list1 = new ContactList();
     ContactFactory cf1;
     cf1.createRandomContacts(list1, 3);
 
