@@ -31,6 +31,7 @@ private:
     PuzzleModel* m_Model;
     QGridLayout* m_Layout;
     QButtonGroup m_Buttons;
+    static int s_NumTiles;
 };
 
 #endif // PUZZLEVIEW_H
