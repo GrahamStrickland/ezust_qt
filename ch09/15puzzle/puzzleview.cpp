@@ -41,46 +41,25 @@ PuzzleView::PuzzleView(QWidget *parent, PuzzleModel* model) :
                      SLOT(close()));
     m_Buttons.addButton(quitButton);
 
-    //Create column and row layouts and add to QGridLayout.
-    QVBoxLayout* col = new QVBoxLayout();
-
-    QHBoxLayout* row = new QHBoxLayout();
-    row->addWidget(m_Buttons.button(1));
-    row->addWidget(m_Buttons.button(2));
-    row->addWidget(m_Buttons.button(3));
-    row->addWidget(m_Buttons.button(4));
-    col->addLayout(row);
-
-    row = new QHBoxLayout();
-    row->addWidget(m_Buttons.button(5));
-    row->addWidget(m_Buttons.button(6));
-    row->addWidget(m_Buttons.button(7));
-    row->addWidget(m_Buttons.button(8));
-    col->addLayout(row);
-
-    row = new QHBoxLayout();
-    row->addWidget(m_Buttons.button(9));
-    row->addWidget(m_Buttons.button(10));
-    row->addWidget(m_Buttons.button(11));
-    row->addWidget(m_Buttons.button(12));
-    col->addLayout(row);
-
-    row = new QHBoxLayout();
-    row->addWidget(m_Buttons.button(13));
-    row->addWidget(m_Buttons.button(14));
-    row->addWidget(m_Buttons.button(15));
-    col->addLayout(row);
-
+    //Add buttons to QGridLayout.
     m_Layout = new QGridLayout();
-    setLayout(m_Layout);
-
-    m_Layout->addLayout(col);
-
-    col = new QVBoxLayout();
-    col->addWidget(m_Buttons.button(16));
-    col->addWidget(m_Buttons.button(17));
-
-    m_Layout->addLayout(col);
+    m_Layout->addWidget(m_Buttons.button(1, 0, 0));
+    m_Layout->addWidget(m_Buttons.button(2, 0, 1));
+    m_Layout->addWidget(m_Buttons.button(3, 0, 2));
+    m_Layout->addWidget(m_Buttons.button(4, 0, 3));
+    m_Layout->addWidget(m_Buttons.button(5, 1, 0));
+    m_Layout->addWidget(m_Buttons.button(6, 1, 1));
+    m_Layout->addWidget(m_Buttons.button(7, 1, 2));
+    m_Layout->addWidget(m_Buttons.button(8, 1, 3));
+    m_Layout->addWidget(m_Buttons.button(9, 2, 0));
+    m_Layout->addWidget(m_Buttons.button(10, 2, 1));
+    m_Layout->addWidget(m_Buttons.button(11, 2, 2));
+    m_Layout->addWidget(m_Buttons.button(12, 2, 3));
+    m_Layout->addWidget(m_Buttons.button(13, 3, 0));
+    m_Layout->addWidget(m_Buttons.button(14, 3, 2));
+    m_Layout->addWidget(m_Buttons.button(15, 3, 3));
+    m_Layout->addWidget(m_Buttons.button(16, 1, 4));
+    m_Layout->addWidget(m_Buttons.button(17, 2, 4));
 }
 
 void PuzzleView::refresh()
