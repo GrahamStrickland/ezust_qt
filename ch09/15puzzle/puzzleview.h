@@ -2,16 +2,16 @@
 #define PUZZLEVIEW_H
 
 #include "puzzlemodel.h"
-#include "tile.h"
-#include <QWidget>
 #include <QAbstractButton>
+#include <QButtonGroup>
 #include <QLayout>
+#include <QWidget>
 
 class PuzzleView : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PuzzleView(QWidget *parent = 0, PuzzleModel* model);
+    explicit PuzzleView(PuzzleModel* model, QWidget *parent = 0);
         //Constructor with parameters.
         //Postcondition: m_Model = model.
 
@@ -30,7 +30,7 @@ public slots:
 private:
     PuzzleModel* m_Model;
     QGridLayout* m_Layout;
-    QButtonGroup m_Buttons;
+    QButtonGroup* m_Buttons;
     static int s_NumTiles;
     static int s_ShuffleMax;
 };

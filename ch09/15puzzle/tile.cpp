@@ -1,6 +1,6 @@
 #include "tile.h"
 
-Tile::Tile(QObject *parent, int tileNumber) :
+Tile::Tile(int tileNumber, QWidget *parent) :
     QPushButton(parent), m_Number(tileNumber)
 {
     //Function body deliberately blank.

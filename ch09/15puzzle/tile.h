@@ -7,7 +7,7 @@ class Tile : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit Tile(QObject *parent = 0, int tileNumber);
+    explicit Tile(int tileNumber, QWidget *parent = 0);
 
     int m_Number;
 };

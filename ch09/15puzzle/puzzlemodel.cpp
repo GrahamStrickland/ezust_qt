@@ -27,7 +27,7 @@ bool PuzzleModel::slide(int tilenum)
         empty = m_Positions.indexOf(0);
         m_Positions.replace(empty, tilenum);
         m_Positions.replace(pos, 0);
-        gridChanged();
+        emit gridChanged();
         return true;
     }
     else
@@ -40,7 +40,7 @@ bool PuzzleModel::neighbouring(int r, int c)
 
     int emptyRow, emptyCol, empty;
 
-    empty = m_Positions.indexOf();
+    empty = m_Positions.indexOf(0);
     emptyCol = empty % m_Rows;
     emptyRow = (empty - emptyCol) / m_Rows;
 
@@ -50,7 +50,7 @@ bool PuzzleModel::neighbouring(int r, int c)
             || (c < m_Cols - 1 && c == emptyCol + 1);
 }
 
-PuzzleModel::gridChanged()
+void PuzzleModel::gridChanged()
 {
     //Signal; no function body.
 }
