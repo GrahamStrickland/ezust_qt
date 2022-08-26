@@ -33,6 +33,11 @@ private:
     QButtonGroup* m_Buttons;
     static int s_NumTiles;
     static int s_ShuffleMax;
+
+    void addTiles();
+        //Function to add all tiles to m_Layout in the order specified
+        //by m_Model.
+        //Postcondition: s_NumTiles widgets added to m_Layout.
 };
 
 #endif // PUZZLEVIEW_H

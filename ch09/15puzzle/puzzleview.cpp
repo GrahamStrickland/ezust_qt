@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
 
 int PuzzleView::s_NumTiles = 15;
 int PuzzleView::s_ShuffleMax = 50;
@@ -44,27 +45,11 @@ PuzzleView::PuzzleView(PuzzleModel* model, QWidget* parent) :
 
     //Add buttons to QGridLayout.
     m_Layout = new QGridLayout();
-    m_Layout->addWidget(m_Buttons->button(1), 0, 0);
-    m_Layout->addWidget(m_Buttons->button(2), 0, 1);
-    m_Layout->addWidget(m_Buttons->button(3), 0, 2);
-    m_Layout->addWidget(m_Buttons->button(4), 0, 3);
-    m_Layout->addWidget(m_Buttons->button(5), 1, 0);
-    m_Layout->addWidget(m_Buttons->button(6), 1, 1);
-    m_Layout->addWidget(m_Buttons->button(7), 1, 2);
-    m_Layout->addWidget(m_Buttons->button(8), 1, 3);
-    m_Layout->addWidget(m_Buttons->button(9), 2, 0);
-    m_Layout->addWidget(m_Buttons->button(10), 2, 1);
-    m_Layout->addWidget(m_Buttons->button(11), 2, 2);
-    m_Layout->addWidget(m_Buttons->button(12), 2, 3);
-    m_Layout->addWidget(m_Buttons->button(13), 3, 0);
-    m_Layout->addWidget(m_Buttons->button(14), 3, 2);
-    m_Layout->addWidget(m_Buttons->button(15), 3, 3);
-    m_Layout->addWidget(m_Buttons->button(16), 1, 4);
-    m_Layout->addWidget(m_Buttons->button(17), 2, 4);
+    addTiles();
 }
 void PuzzleView::refresh()
 {
-
+    addTiles();
 }
 
 void PuzzleView::shuffle()
@@ -76,19 +61,30 @@ void PuzzleView::shuffle()
     for (int i = 0; i < s_ShuffleMax; i++)
         do
             tileNum = rand() % s_NumTiles;
-        while (!m_Model->slide(m_Buttons->id(tileNum)));
+        while (!m_Model->slide(tileNum));
 }
 
 void PuzzleView::tryToSlide(QAbstractButton *button)
 {
-    if (!m_Model->slide(m_Buttons.id(button)))
+    if (!m_Model->slide(m_Buttons->id(button)))
     {
-        QMessageBox errorMsg = QMessageBox::information(
-                    this,
-                    tr("Error"),
-                    tr("Tile %1 has no empty neighbours.\n")
-                    .arg(QString(button->text())),
-                    QMessageBox::Cancel);
+        QMessageBox errorMsg(this);
+        errorMsg.addButton(QMessageBox::information(
+                           this,
+                           tr("Error"),
+                           tr("Tile %1 has no empty neighbours.\n")
+                           .arg(QString(button->text())),
+                           QMessageBox::Cancel));
         errorMsg.exec();
     }
+}
+
+void PuzzleView::addTiles()
+{
+    for (int id = 0; id < s_NumTiles; id++)
+        m_Layout->removeWidget(m_Buttons->button(id));
+
+    for (int row = 0; row < ceil(sqrt(s_NumTiles)); row++)
+        for (int col = 0; col < ceil(sqrt(s_NumTiles)); col++)
+            m_Layout->addWidget(m_Buttons->button(m_Model->value(row, col)), row, col);
 }

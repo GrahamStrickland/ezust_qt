@@ -1,13 +1,14 @@
 #ifndef PUZZLEWINDOW_H
 #define PUZZLEWINDOW_H
 
+#include "puzzleview.h"
 #include <QMainWindow>
 
 class PuzzleWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit PuzzleWindow(QWidget *parent = 0, PuzzleView* view);
+    explicit PuzzleWindow(PuzzleView* view, QWidget *parent = 0);
         //Constructor with parameters.
         //Postcondition: m_PuzzleView = view.
 
