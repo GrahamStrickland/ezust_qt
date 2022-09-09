@@ -4,9 +4,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    PuzzleModel model;
-    PuzzleView view(&model);
-    PuzzleWindow w(&view);
+    MainWindow w;
     w.show();
 
     return a.exec();
