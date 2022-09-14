@@ -12,7 +12,7 @@ public:
     QString generateString(int len);
 
     void setStringLength(int len);
-    int getStringLenght();
+    int getStringLength();
     bool isMatch(QString responseStr);
     int numCorrectChars(QString responseStr);
 private:

@@ -165,12 +165,14 @@ Makefile: ../speed-reader/speed-reader.pro ../../../../Qt/Qt5.3.0/5.3/mingw482_3
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/resources.prf \
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/moc.prf \
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/win32/opengl.prf \
+		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/uic.prf \
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/win32/windows.prf \
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/testcase_targets.prf \
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/exceptions.prf \
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/yacc.prf \
 		../../../../Qt/Qt5.3.0/5.3/mingw482_32/mkspecs/features/lex.prf \
 		../speed-reader/speed-reader.pro \
+		C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Widgets.prl \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Core.prl
 	$(QMAKE) -spec win32-g++ CONFIG+=debug -o Makefile ..\speed-reader\speed-reader.pro
@@ -280,12 +282,14 @@ Makefile: ../speed-reader/speed-reader.pro ../../../../Qt/Qt5.3.0/5.3/mingw482_3
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\resources.prf:
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\moc.prf:
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\win32\opengl.prf:
+..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\uic.prf:
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\win32\windows.prf:
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\testcase_targets.prf:
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\exceptions.prf:
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\yacc.prf:
 ..\..\..\..\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\features\lex.prf:
 ..\speed-reader\speed-reader.pro:
+C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Widgets.prl:
 C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Gui.prl:
 C:/Qt/Qt5.3.0/5.3/mingw482_32/lib/Qt5Core.prl:
 qmake: FORCE

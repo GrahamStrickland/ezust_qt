@@ -1,11 +1,22 @@
-# -------------------------------------------------
-# Project created by QtCreator 2010-12-18T11:23:48
-# -------------------------------------------------
+#-------------------------------------------------
+#
+# Project created by QtCreator 2022-09-14T16:13:38
+#
+#-------------------------------------------------
+
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 TARGET = speed-reader
 TEMPLATE = app
-SOURCES += main.cpp \
-    mainwindow.cpp \
+
+
+SOURCES += main.cpp\
+        mainwindow.cpp \
     randomstring.cpp
-HEADERS += mainwindow.h \
+
+HEADERS  += mainwindow.h \
     randomstring.h
-FORMS += mainwindow.ui
+
+FORMS    += mainwindow.ui

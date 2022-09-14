@@ -36,6 +36,10 @@ void MainWindow::on_exposureSlider_valueChanged(int value) {
     m_expInterval = value;
 }
 
+void MainWindow::on_timeSlider_valueChanged(int value) {
+    ui->timeLCD->display(value);
+}
+
 void MainWindow::on_lengthSlider_valueChanged(int value) {
     ui->lengthLCD->display(value);
     m_randStr.setStringLength(value);

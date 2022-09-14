@@ -11,7 +11,7 @@ void RandomString::setStringLength(int len) {
     m_stringLength = len;
 }
 
-int RandomString::getStringLenght() {
+int RandomString::getStringLength() {
     return m_stringLength;
 }
 

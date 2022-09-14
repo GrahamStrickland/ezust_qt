@@ -24,6 +24,7 @@ private slots:
     void on_startButton_clicked();
     void on_lengthSlider_valueChanged(int value);
     void on_exposureSlider_valueChanged(int value);
+    void on_timeSlider_valueChanged(int value);
     void timerDisplayRandStr();
 private:
     int m_expInterval;
