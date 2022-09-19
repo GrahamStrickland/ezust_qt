@@ -177,10 +177,10 @@
       </rect>
      </property>
      <property name="minimum">
-      <number>5</number>
+      <number>100</number>
      </property>
      <property name="maximum">
-      <number>50</number>
+      <number>3000</number>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

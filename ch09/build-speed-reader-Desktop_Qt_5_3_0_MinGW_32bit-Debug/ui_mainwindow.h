@@ -111,8 +111,8 @@ public:
         timeSlider = new QSlider(groupBox);
         timeSlider->setObjectName(QStringLiteral("timeSlider"));
         timeSlider->setGeometry(QRect(99, 100, 141, 20));
-        timeSlider->setMinimum(5);
-        timeSlider->setMaximum(50);
+        timeSlider->setMinimum(100);
+        timeSlider->setMaximum(3000);
         timeSlider->setOrientation(Qt::Horizontal);
         label_6 = new QLabel(groupBox);
         label_6->setObjectName(QStringLiteral("label_6"));

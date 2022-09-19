@@ -7,7 +7,6 @@
 namespace Ui {
     class MainWindow;
 }
-//start
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
@@ -26,13 +25,14 @@ private slots:
     void on_exposureSlider_valueChanged(int value);
     void on_timeSlider_valueChanged(int value);
     void timerDisplayRandStr();
+    void inputTimedDisplay();
 private:
     int m_expInterval;
+    int m_inputTime;
     RandomString m_randStr;
     int m_trials;
     int m_correctChars;
     int m_totTrials;
     int m_totCorrectChars;
 };
-//end
 #endif // MAINWINDOW_H

@@ -1,12 +1,17 @@
 #include "puzzlemodel.h"
 #include <QtGlobal>
 
-PuzzleModel::PuzzleModel(QObject *parent) :
-    QObject(parent)
+PuzzleModel::PuzzleModel(int rows, int cols, QObject *parent) :
+    QObject(parent), m_Rows(rows), m_Cols(cols)
 {
     for (int i = 0; i < m_Rows * m_Cols; i++)
         m_Positions.append(i+1);
     m_Positions.append(0);
+}
+
+int PuzzleModel::getNumTiles() const
+{
+    return m_Rows * m_Cols;
 }
 
 int PuzzleModel::value(int r, int c)
@@ -48,9 +53,4 @@ bool PuzzleModel::neighbouring(int r, int c)
             || (r < m_Rows - 1 && r == emptyRow + 1)
             || (c > 1 && c == emptyCol - 1)
             || (c < m_Cols - 1 && c == emptyCol + 1);
-}
-
-void PuzzleModel::gridChanged()
-{
-    //Signal; no function body.
 }

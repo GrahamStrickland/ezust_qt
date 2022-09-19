@@ -1,18 +1,20 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2022-08-29T12:52:31
+# Project created by QtCreator 2022-07-21T13:47:20
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       -= gui
 
-TARGET = 15puzzle
+TARGET = q1
+CONFIG   += console
+CONFIG   -= app_bundle
+
 TEMPLATE = app
 
-
-SOURCES += main.cpp\
-        puzzlewindow.cpp
-
-HEADERS  += puzzlewindow.h
+# Input
+HEADERS += puzzlemodel.h puzzleview.h puzzlewindow.h tile.h ui_mainwindow.h
+SOURCES += main.cpp puzzlemodel.cpp puzzleview.cpp puzzlewindow.cpp tile.cpp
+CONFIG += qt

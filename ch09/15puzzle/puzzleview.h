@@ -1,11 +1,12 @@
 #ifndef PUZZLEVIEW_H
 #define PUZZLEVIEW_H
 
-#include "puzzlemodel.h"
 #include <QAbstractButton>
 #include <QButtonGroup>
 #include <QLayout>
 #include <QWidget>
+
+class PuzzleModel;
 
 class PuzzleView : public QWidget
 {
@@ -31,7 +32,7 @@ private:
     PuzzleModel* m_Model;
     QGridLayout* m_Layout;
     QButtonGroup* m_Buttons;
-    static int s_NumTiles;
+    int m_NumTiles;
     static int s_ShuffleMax;
 
     void addTiles();

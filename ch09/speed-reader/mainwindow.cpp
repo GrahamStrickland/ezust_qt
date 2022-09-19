@@ -5,10 +5,10 @@
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), 
                                  ui(new Ui::MainWindow), m_expInterval(0),
-                              m_randStr(), m_trials(0), m_correctChars(0),
-                                     m_totTrials(0), m_totCorrectChars(0) {
-
-    //initialize ui
+                                 m_inputTime(0), m_randStr(), m_trials(0),
+                                 m_correctChars(0), m_totTrials(0),
+                                 m_totCorrectChars(0) {
+    //Initialize UI.
     ui->setupUi(this);
     ui->displayLabel->hide();
     ui->responseLabel->hide();
@@ -38,6 +38,7 @@ void MainWindow::on_exposureSlider_valueChanged(int value) {
 
 void MainWindow::on_timeSlider_valueChanged(int value) {
     ui->timeLCD->display(value);
+    m_inputTime = value;
 }
 
 void MainWindow::on_lengthSlider_valueChanged(int value) {
@@ -46,54 +47,61 @@ void MainWindow::on_lengthSlider_valueChanged(int value) {
 }
 
 void MainWindow::on_startButton_clicked() {
-    //hide start button
+    //Hide start button.
     ui->startButton->hide();
 
-    //show game panel
+    //Show game panel.
     ui->displayLabel->show();
     ui->targetString->show();
     ui->responseLabel->show();
     ui->responseString->show();
     ui->nextButton->show();
 
-    //disable settings
+    //Disable settings.
     ui->groupBox->setEnabled(false);
-
     m_trials = 0;
 
-    //initialize the score system
+    //Initialize the score system.
     m_correctChars = 0;
 
-    // start trials
+    //Start trials.
     processTrial();
 }
 
-//start
 void MainWindow::processTrial() {
-    //clear response text editor
+    //Clear response text editor.
     ui->responseString->setText("");
-    //display the random string
+
+    //Display the random string.
     ui->targetString->setText(m_randStr.generateString());
     ui->responseString->setEnabled(false);
     ui->nextButton->setEnabled(false);
-    //count the number of trials
+
+    //Count the number of trials.
     m_trials++;
     m_totTrials++;
     ui->nextButton->setText(QString("String %1").arg(m_trials));
-    //begin exposure
+
+    //Begin exposure.
     QTimer::singleShot(m_expInterval, this, SLOT(timerDisplayRandStr()));
 }
 
 
 void MainWindow::timerDisplayRandStr() {
     ui->targetString->setText(QString(""));
-    //enable the response line editor and next button
+
+    //Enable the response line editor and next button.
     ui->responseString->setEnabled(true);
     ui->responseString->setFocus();
     ui->nextButton->setEnabled(true);
+
+    //Call function to begin input timer.
+    QTimer::singleShot(m_inputTime, this, SLOT(inputTimedDisplay()));
 }
 
-//end
+void MainWindow::inputTimedDisplay() {
+    on_nextButton_clicked();	//End of timer, proceed to next.
+}
 
 void MainWindow::on_responseString_returnPressed() {
     on_nextButton_clicked();  //Pressing return has same effect as clicking next.
@@ -108,16 +116,18 @@ void MainWindow::on_nextButton_clicked() {
     ui->correctCharFraction->setText(QString("%1 / %2").arg(m_correctChars).arg(lenTarget * m_trials));
     ui->cumulativeFraction->setText(QString("%1 / %2").arg(m_totCorrectChars).arg(lenTarget * m_totTrials));
 
-    if(m_trials == ui->trialsSpinBox->value()) {
-        //hide game panel
+    if (m_trials == ui->trialsSpinBox->value()) {
+        //Hide game panel.
         ui->startButton->show();
-        //show start button
+
+        //Show start button.
         ui->displayLabel->hide();
         ui->targetString->hide();
         ui->responseLabel->hide();
         ui->responseString->hide();
         ui->nextButton->hide();
-        //Enble settings
+
+        //Enble settings.
         ui->groupBox->setEnabled(true);
     }
     else

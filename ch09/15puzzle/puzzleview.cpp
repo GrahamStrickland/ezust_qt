@@ -1,3 +1,4 @@
+#include "puzzlemodel.h"
 #include "puzzleview.h"
 #include "tile.h"
 #include <QMessageBox>
@@ -5,14 +6,16 @@
 #include <ctime>
 #include <cmath>
 
-int PuzzleView::s_NumTiles = 15;
 int PuzzleView::s_ShuffleMax = 50;
 
 PuzzleView::PuzzleView(PuzzleModel* model, QWidget* parent) :
-    QWidget(parent), m_Model(model)
+    QWidget(parent)
 {
+    m_Model = model;
+
     //Set parent of model and connect signal to slot.
     m_Model->setParent(this);
+    m_NumTiles = m_Model->getNumTiles();
 
     QObject::connect(m_Model,
                      SIGNAL(gridChanged()),
@@ -21,24 +24,24 @@ PuzzleView::PuzzleView(PuzzleModel* model, QWidget* parent) :
 
     //Create QButtonGroup and add buttons; connect signals and slots.
     m_Buttons = new QButtonGroup();
-    for (int tileNum = 1; tileNum <= s_NumTiles; tileNum++)
+    for (int tileNum = 1; tileNum <= m_NumTiles; tileNum++)
     {
         Tile* tile = new Tile(tileNum);
         m_Buttons->addButton(tile);
     }
     QObject::connect(m_Buttons,
-                     SIGNAL(QButtonGroup::buttonClicked),
+                     SIGNAL(buttonClicked(QAbstractButton*)),
                      this,
-                     SLOT(tryToSlide(sender)));
+                     SLOT(tryToSlide(QAbstractButton*)));
     QPushButton* shuffleButton = new QPushButton("Shuffle");
     QObject::connect(shuffleButton,
-                     SIGNAL(QPushButton::clicked()),
+                     SIGNAL(clicked()),
                      this,
                      SLOT(shuffle()));
     m_Buttons->addButton(shuffleButton);
     QPushButton* quitButton = new QPushButton("Quit");
     QObject::connect(quitButton,
-                     SIGNAL(QPushButton::clicked()),
+                     SIGNAL(clicked()),
                      this,
                      SLOT(close()));
     m_Buttons->addButton(quitButton);
@@ -60,7 +63,7 @@ void PuzzleView::shuffle()
     //Shuffle tiles s_ShuffleMax times.
     for (int i = 0; i < s_ShuffleMax; i++)
         do
-            tileNum = rand() % s_NumTiles;
+            tileNum = rand() % m_NumTiles;
         while (!m_Model->slide(tileNum));
 }
 
@@ -81,10 +84,10 @@ void PuzzleView::tryToSlide(QAbstractButton *button)
 
 void PuzzleView::addTiles()
 {
-    for (int id = 0; id < s_NumTiles; id++)
+    for (int id = 0; id < m_NumTiles; id++)
         m_Layout->removeWidget(m_Buttons->button(id));
 
-    for (int row = 0; row < ceil(sqrt(s_NumTiles)); row++)
-        for (int col = 0; col < ceil(sqrt(s_NumTiles)); col++)
+    for (int row = 0; row < ceil(sqrt(m_NumTiles)); row++)
+        for (int col = 0; col < ceil(sqrt(m_NumTiles)); col++)
             m_Layout->addWidget(m_Buttons->button(m_Model->value(row, col)), row, col);
 }

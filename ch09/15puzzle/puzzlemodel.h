@@ -8,7 +8,11 @@ class PuzzleModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit PuzzleModel(QObject *parent = 0);
+    explicit PuzzleModel(int rows, int cols, QObject *parent = 0);
+
+    int getNumTiles() const;
+        //Function to return the number of tiles in the puzzle.
+        //Postcondition: Returned m_Rows * m_Cols.
 
     int value(int r, int c);
         //Function to return the value of the tile at row r,
