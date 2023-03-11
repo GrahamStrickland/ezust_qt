@@ -36,6 +36,7 @@
 *.qmake
 *.stash
 *.qmake.stash
+*.app
 
 # Vim files
 *.swp
