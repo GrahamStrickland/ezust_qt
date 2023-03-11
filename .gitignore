@@ -1,0 +1,42 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# IntelliJ files
+*.iml
+*.project
+/venv
+.idea
+
+# VSCode files
+.DS_Store
+*.code-workspace
+*.vscode
+
+# Eclipse files
+.classpath
+.settings
+
+# Object files and debugging files
+*.o
+*.out
+*.dSYM
+.gdb_history
+
+# Qt files
+*.pro
+*.qobj
+*.idx
+*.json
+
+# Vim files
+*.swp
+$HOME
+
+# Apple files
+*.icloud
