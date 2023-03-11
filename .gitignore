@@ -33,6 +33,9 @@
 *.obj
 *.idx
 *.json
+*.qmake
+*.stash
+*.qmake.stash
 
 # Vim files
 *.swp
