@@ -30,7 +30,7 @@
 
 # Qt files
 *.pro
-*.qobj
+*.obj
 *.idx
 *.json
 
