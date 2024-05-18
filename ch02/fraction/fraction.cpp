@@ -1,10 +1,6 @@
-// This is the implementation of the ADT Fraction.
-// The interface is in the file fraction.h
-
-#include "fraction.h"
 #include <QString>
 
-using namespace std;
+#include "fraction.h"
 
 void Fraction::set(int numerator, int denominator)
 {   
@@ -108,3 +104,4 @@ Fraction::Fraction(int numerator, int denominator)
 {
     set(numerator, denominator);
 }
+

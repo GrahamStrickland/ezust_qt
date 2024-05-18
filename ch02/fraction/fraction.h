@@ -1,8 +1,3 @@
-// This is the interface for the ADT Fraction
-// which implements a fraction using two private
-// member functions; m_Numerator and m_Denominator
-// with functions for arithmetic.
-
 #ifndef FRACTION_H
 #define FRACTION_H
 
@@ -59,3 +54,4 @@ private:
     int m_Denominator;  // int value to store denominator.
 };
 #endif // FRACTION_H
+       
