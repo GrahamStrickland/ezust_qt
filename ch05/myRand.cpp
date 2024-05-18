@@ -1,6 +1,3 @@
-// Driver program to test the function myRand() which returns
-// a pseudo-random int in the range given.
-
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -31,3 +28,4 @@ int myRand(int min, int max)
 {
     return (rand() % (max - min + 1)) + min;
 }
+

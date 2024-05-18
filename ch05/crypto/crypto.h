@@ -1,8 +1,6 @@
 #ifndef CRYPTO_H
 #define CRYPTO_H
 
-// This is the interface for the ADT Crypto.
-
 #include <cstdlib>
 
 #include <QVector>
@@ -11,7 +9,7 @@
 
 class Crypto {
 public:
-    Crypto(ushort key, QString opseq, ushort charsiz = 128);
+    Crypto(ushort key, QString opseq, ushort charsize = 128);
         // Constructor
         // Precondition: key = encryption key; opseq = QString 
         //  of characters 'p' and 's' for permute() and shift(),
@@ -60,3 +58,4 @@ private:
         //  stored in QVector.
 };
 #endif // CRYPTO_H
+

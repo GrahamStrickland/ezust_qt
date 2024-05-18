@@ -53,3 +53,4 @@ private:
     double m_Re, m_Im;
 };
 #endif // COMPLEX_H
+       

@@ -1,14 +1,11 @@
-// This is the implementation of the ADT Crypto.
-// The interface is in the file "crypto.h"
-
 #include "crypto.h"
 
 #include <QTextStream>
 
 QTextStream cerr(stderr);
 
-Crypto::Crypto(ushort key, QString opseq, ushort charsiz) : 
-    m_Key(key), m_OpSequence(opseq), m_CharSetSize(charsiz)
+Crypto::Crypto(ushort key, QString opseq, ushort charsize) : 
+    m_Key(key), m_OpSequence(opseq), m_CharSetSize(charsize)
 {
     //Function body deliberately blank.
 }
@@ -121,3 +118,4 @@ QVector<int> Crypto::randomPerm(int n, unsigned key)
 
     return perm;
 }
+
