@@ -1,11 +1,7 @@
 #ifndef CONTACT_FACTORY_H
 #define CONTACT_FACTORY_H
 
-// This is the interface for the ADT contactFactory
-// which generates random Contact objects.
-// The implementation is in the file "contactFactory.cpp"
-
-#include "contactList.h"
+#include "contactlist.h"
 
 class ContactFactory
 {
@@ -25,11 +21,11 @@ public:
         // Postcondition: cl filled with random Contact objects.
 
 private:
-    QString firstNames[3] = {"Bob", "Jim", "Dave"};
-    QString lastNames[3] = {"Smith", "Jones", "Williams"};
-    QString citiesFirst[4] = {"North", "East", "South", "West"};
-    QString citiesLast[3] = {"Williamsburg", "Jonestown", "Smithfield"};
-    QString streetNames[3] = {"Pleasant Avenue", "Main Street", "Queen\'s Street"};
+    QString m_firstNames[3] = {"Bob", "Jim", "Dave"};
+    QString m_lastNames[3] = {"Smith", "Jones", "Williams"};
+    QString m_citiesFirst[4] = {"North", "East", "South", "West"};
+    QString m_citiesLast[3] = {"Williamsburg", "Jonestown", "Smithfield"};
+    QString m_streetNames[3] = {"Pleasant Avenue", "Main Street", "Queen\'s Street"};
 
     static int getRandomNumber(int min, int max);
         // Function to generate a random number in the range [min,max).
@@ -37,3 +33,4 @@ private:
         //  number < max.
 };
 #endif // CONTACT_FACTORY_H
+       

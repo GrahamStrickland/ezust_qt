@@ -1,20 +1,15 @@
-// This is the implementation of the class Position.
-// The interface is in the file position.h
-
 #include "position.h"
 #include "employer.h"
 
-using namespace std;
-
 Position::Position(QString name, QString description, Employer* empl) :
-    m_Name(name), m_Description(description), m_employer(empl)
+    m_name(name), m_description(description), m_employer(empl)
 {
     m_employer->addPosition(this);
 }
 
 QString Position::toString() const
 {
-    return QString(m_Name + " - " + m_Description);
+    return QString(m_name + " - " + m_description);
 }
 
 Employer* Position::getEmployer() const
@@ -26,3 +21,4 @@ void Position::setEmployer(Employer* empl)
 {
     m_employer = empl;
 }
+

@@ -1,12 +1,10 @@
-// Test program for the classes Person, Employer, and Position.
 #include <QTextStream>
+
 #include "person.h"
 #include "employer.h"
 #include "position.h"
 
-using namespace std;
-
-int main()
+int main(int argc, char* argv[])
 {   // Declare output stream to test objects.
     QTextStream cout(stdout);
 
@@ -30,19 +28,19 @@ int main()
     if (hired) cout << pers1.getName() << " is employed by " 
                     << pers1.getEmployer()->toString()
                     << " as a " << pers1.getPosition()->toString()
-                    << endl << endl;
+                    << Qt::endl << Qt::endl;
 
     hired = pers2.apply(&pos2);
     if (hired) cout << pers2.getName() << " is employed by "
                     << pers2.getEmployer()->toString()
                     << " as a " << pers2.getPosition()->toString()
-                    << endl << endl;
+                    << Qt::endl << Qt::endl;
 
     hired = pers3.apply(&pos3);
     if (hired) cout << pers3.getName() << " is employed by "
                     << pers3.getEmployer()->toString()
                     << " as a " << pers3.getPosition()->toString()
-                    << endl << endl;
+                    << Qt::endl << Qt::endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }

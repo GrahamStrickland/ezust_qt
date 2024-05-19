@@ -1,20 +1,16 @@
-// This is the implementation of the class Person.
-// The interface is in the file person.h
+#include <QTextStream>
 
 #include "person.h"
 #include "position.h"
 #include "employer.h"
-#include <QTextStream>
 
 QList<Person*> Person::s_unemploymentLine;
 
 QTextStream cout(stdout);
 
-using namespace std;
-
-Person::Person(QString name) : m_Name(name)
+Person::Person(QString name) : m_name(name)
 {
-    m_Employed = false;
+    m_employed = false;
     s_unemploymentLine.append(this);
     Employer noEmpl("Unemployed");
     Position noPos("Unemployed", "No job", &noEmpl);
@@ -24,7 +20,7 @@ Person::Person(QString name) : m_Name(name)
 
 QString Person::getName() const
 {
-    return m_Name;
+    return m_name;
 }
 
 bool Person::apply(Position* pos)
@@ -34,29 +30,30 @@ bool Person::apply(Position* pos)
         m_position = pos;
         m_employer = pos->getEmployer();
         s_unemploymentLine.removeAll(this);
-        m_Employed = true;
+        m_employed = true;
     }
     return hired;
 }
 
 Position* Person::getPosition() const
 {
-    if (!m_Employed) 
-        cout << endl << getName() << " is not currently employed.\n";
+    if (!m_employed) 
+        cout << Qt::endl << getName() << " is not currently employed.\n";
     return m_position;
 }
 
 Employer* Person::getEmployer() const
 {
-    if (!m_Employed) 
-        cout << endl << getName() << " is not currently employed.\n";
+    if (!m_employed) 
+        cout << Qt::endl << getName() << " is not currently employed.\n";
     return m_employer;
 }
 
 void Person::setPosition(Employer* empl, Position* pos)
 {
-    m_Employed = true;
+    m_employed = true;
     m_employer = empl;
     m_position = pos;
     s_unemploymentLine.removeAll(this);
 }
+

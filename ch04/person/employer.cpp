@@ -1,16 +1,12 @@
-// This is the implementation of the class Employer.
-// The interface is in the file employer.h
+#include <cstdlib>
+#include <ctime>
 
 #include "employer.h"
 #include "person.h"
 #include "position.h"
-#include <cstdlib>
-#include <ctime>
-
-using namespace std;
 
 Employer::Employer(QString name) :
-    m_Name(name)
+    m_name(name)
 {
     srand(time(0));
 }
@@ -19,11 +15,11 @@ bool Employer::hire(Person* newHire, Position* forPosition)
 {
     bool hired;
 
-    if (m_OpeningList.contains(forPosition)) { 
+    if (m_openingList.contains(forPosition)) { 
        hired = (rand() % 2 == 0) ? true : false;
        if (hired) {
            newHire->setPosition(this, forPosition);
-           m_EmployeeList.append(newHire);
+           m_employeeList.append(newHire);
            return true;
        }
        else return false;
@@ -33,15 +29,16 @@ bool Employer::hire(Person* newHire, Position* forPosition)
 
 QString Employer::toString() const
 {
-    return m_Name;
+    return m_name;
 }
 
 QList<Position*> Employer::findJobs() const
 {
-    return m_OpeningList;
+    return m_openingList;
 }
 
 void Employer::addPosition(Position* pos)
 {
-   m_OpeningList.append(pos); 
+   m_openingList.append(pos); 
 }
+

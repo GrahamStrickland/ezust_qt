@@ -1,37 +1,32 @@
-// This is the implementation of the ADT ContactList.
-// The interface is in the file contactList.h
-
-#include "contactList.h"
-
-using namespace std;
+#include "contactlist.h"
 
 ContactList::ContactList()
     : m_length(0)
 {
-   m_ContactList.reserve(m_length);
+   m_contactList.reserve(m_length);
 }
 
 ContactList::ContactList(QList<Contact> list) 
     : m_length(list.size())
 {
-    m_ContactList.reserve(m_length);
+    m_contactList.reserve(m_length);
 }
 
 ContactList::ContactList(unsigned int length)
     : m_length(length)
 {
-    m_ContactList.reserve(m_length);
+    m_contactList.reserve(m_length);
 }
 
 void ContactList::add(const Contact& c)
 {
     m_length++;
-    m_ContactList.append(c);
+    m_contactList.append(c);
 }
 
 void ContactList::remove(const Contact& c)
 {
-    unsigned int num = m_ContactList.removeAll(c);
+    unsigned int num = m_contactList.removeAll(c);
     m_length -= num;
 }
 
@@ -39,7 +34,7 @@ QStringList ContactList::getPhoneList(int cat) const
 {
     QStringList phoneList;
 
-    foreach (const Contact &contact, m_ContactList) {
+    foreach (const Contact &contact, m_contactList) {
         if (contact.getCategory() == cat)
             phoneList << QString("%1\t%2")
                 .arg(contact.getName())
@@ -53,7 +48,7 @@ QStringList ContactList::getMailingList(int cat) const
 {
     QStringList mailingList;
 
-    foreach (const Contact &contact, m_ContactList) {
+    foreach (const Contact &contact, m_contactList) {
         if (contact.getCategory() == cat)
             mailingList << QString("%1\t%2")
                 .arg(contact.getName())
@@ -65,5 +60,6 @@ QStringList ContactList::getMailingList(int cat) const
 
 ContactList::~ContactList()
 {
-    m_ContactList.clear();
+    m_contactList.clear();
 }
+

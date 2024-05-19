@@ -1,14 +1,8 @@
 #ifndef PERSON_H
 #define PERSON_H
 
-// This is the interface for the class Person,
-// which is composed of objects of type Employer
-// and Position.
-
 #include <QString>
 #include <QList>
-
-using namespace std;
 
 class Employer;
 class Position;
@@ -18,11 +12,11 @@ class Person
 public:
     Person(QString name);
     // Constructor with one argument.
-    // Postcondition: m_Name = name.
+    // Postcondition: m_name = name.
     
     QString getName() const;
     // Function to return the name of the Person object.
-    // Postcondition: Returned m_Name;
+    // Postcondition: Returned m_name;
 
     bool apply(Position* pos);
     // Function to call Employer::hire().
@@ -31,14 +25,14 @@ public:
     
     Position* getPosition() const;
     // Function to return a stringrepresenting the person's position.
-    // Precondition: m_Employed == true.
-    // Postcondition: If m_Employed == true, returned m_position.toString(),
+    // Precondition: m_employed == true.
+    // Postcondition: If m_employed == true, returned m_position.toString(),
     //  otherwise error message printed to console.
 
     Employer* getEmployer() const;
     // Function to return a string representing the person's employer.
-    // Precondition: m_Employed = true.
-    // Postcondition: If m_Employed = true, returned m_employer.toString,
+    // Precondition: m_employed = true.
+    // Postcondition: If m_employed = true, returned m_employer.toString,
     //  otherwise error message printed to console.
 
     void setPosition(Employer* empl, Position* pos);
@@ -46,10 +40,11 @@ public:
     // Postcondition: m_employer = empl; m_position = pos;
 
 private:
-    QString m_Name;
-    bool m_Employed;
+    QString m_name;
+    bool m_employed;
     Employer* m_employer;
     Position* m_position;
     static QList<Person*> s_unemploymentLine;
 };
 #endif // PERSON_H
+

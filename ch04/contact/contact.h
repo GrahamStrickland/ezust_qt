@@ -1,12 +1,7 @@
 #ifndef CONTACT_H
 #define CONTACT_H
 
-// This is the interface for the ADT Contact, which represents a contact to be included
-// in a ContactList object. The implementation  is in the file "contact.cpp"
-
 #include <QString>
-
-using namespace std;
 
 class Contact
 {
@@ -45,12 +40,13 @@ public:
         // Function to return the category of the contact.
         // Postcondition: Returned category.
 private:
-    int category;
-    QString firstName;
-    QString lastName;
-    QString streetAddress;
-    QString zipCode;
-    QString city;
-    QString phoneNumber;
+    int m_category;
+    QString m_firstName;
+    QString m_lastName;
+    QString m_streetAddress;
+    QString m_zipCode;
+    QString m_city;
+    QString m_phoneNumber;
 };
 #endif // CONTACT_H
+       

@@ -1,13 +1,10 @@
 #ifndef CONTACT_LIST_H
 #define CONTACT_LIST_H
 
-// This is the interface for the ADT ContactList that defines
-// a list of Contact objects inherited from the QList class.
-// The implementation is in the file contactList.cpp
-
-#include "contact.h"
 #include <QList>
 #include <QStringList>
+
+#include "contact.h"
 
 class ContactList
 {
@@ -19,21 +16,21 @@ public:
 
     ContactList(QList<Contact> list);
         // Constructor function with list parameter.
-        // Postcondition: ContactList initialized with m_ContactList set
+        // Postcondition: ContactList initialized with m_contactList set
         //  to list.
 
     ContactList(unsigned int length);
         // Constructor function with int parameter.
-        // Postcondition: m_length set to length and m_ContactList initialized
+        // Postcondition: m_length set to length and m_contactList initialized
         //  and memory reserved of size m_length.
 
     void add(const Contact& c);
         // Function to add a contact to the contact list.
-        // Postcondition: m_length++ and contact added to m_ContactList.
+        // Postcondition: m_length++ and contact added to m_contactList.
 
     void remove(const Contact& c);
         // Function to remove a contact from the contact list.
-        // Postcondition: Contact c removed from m_ContactList and m_ContactList
+        // Postcondition: Contact c removed from m_contactList and m_contactList
         //  decremented by number of occurrences of c.
 
     QStringList getPhoneList(int cat) const;
@@ -52,6 +49,7 @@ public:
 
 private:
     unsigned int m_length;
-    QList<Contact> m_ContactList;
+    QList<Contact> m_contactList;
 };
 #endif // CONTACT_LIST_H
+

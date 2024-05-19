@@ -1,9 +1,7 @@
-// This is the implementation of the ADT contactFactory.
-// The interface is in the file "contactFactory.h"
-
-#include "contactFactory.h"
 #include <ctime>
 #include <cstdlib>
+
+#include "contactfactory.h"
 
 ContactFactory::ContactFactory()
 {
@@ -16,20 +14,20 @@ void ContactFactory::operator>>(ContactList &list)
 
     // Generate random QStrings from public member arrays
     first = QString("%1")
-        .arg(firstNames[getRandomNumber(0, 3)]);
+        .arg(m_firstNames[getRandomNumber(0, 3)]);
     last = QString("%2")
-        .arg(lastNames[getRandomNumber(0, 3)]);
+        .arg(m_lastNames[getRandomNumber(0, 3)]);
     add = QString("%1 %2")
         .arg(getRandomNumber(0, 100))
-        .arg(streetNames[getRandomNumber(0,3)]);
+        .arg(m_streetNames[getRandomNumber(0,3)]);
     zip = QString("%1%2%3%4")
         .arg(getRandomNumber(0,10))
         .arg(getRandomNumber(0,10))
         .arg(getRandomNumber(0,10))
         .arg(getRandomNumber(0,10));
     cty = QString("%1 %2")
-        .arg(citiesFirst[getRandomNumber(0,4)])
-        .arg(citiesLast[getRandomNumber(0,3)]);
+        .arg(m_citiesFirst[getRandomNumber(0,4)])
+        .arg(m_citiesLast[getRandomNumber(0,3)]);
     num = QString("+27 %1%2 %3%4%5 %6%7%8%9")
         .arg(getRandomNumber(0,10))
         .arg(getRandomNumber(0,10))
@@ -60,3 +58,4 @@ int ContactFactory::getRandomNumber(int min, int max)
 {
     return (rand() % max) + min;
 }
+
