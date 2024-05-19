@@ -7,14 +7,17 @@ void function1(Thing t) {
     delete tp1;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     Thing t1(101), t2(102);
     Thing* tp1 = new Thing(103);
+
     function1(t1);
     {
         Thing t3(104);
         Thing* tp = new Thing(105);
     }
     delete tp1;
-    return 0;
+
+    return EXIT_SUCCESS;
 }
+
