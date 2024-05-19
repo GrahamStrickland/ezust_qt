@@ -1,21 +1,19 @@
 #include <iostream>
 #include <string>
     
-using namespace std;
+std::string boolToString(bool var);
 
-string boolToString(bool var);
-
-int main()
+int main(int argc, char* argv[])
 {
-
     bool value = true;
 
-    cout << boolToString(value);
+    std::cout << boolToString(value);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
-string boolToString(bool var)
+std::string boolToString(bool var)
 {
-    return var ? "true" : "false";
+    return std::string(var ? "true" : "false");
 }
+
