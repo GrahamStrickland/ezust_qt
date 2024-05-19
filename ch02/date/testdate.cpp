@@ -2,7 +2,7 @@
 
 #include "date.h"
 
-int main()
+int main(int argc, char* argv[])
 {
     Date date1, date2;
 
