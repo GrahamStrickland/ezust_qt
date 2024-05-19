@@ -8,8 +8,10 @@ public:
     void show();
     int getNumber() const;
     char getCharacter() const;
+
 private:
-    int m_Number;
-    char m_Character;
+    int m_number;
+    char m_character;
 };
-#endif
+#endif // THING_H
+

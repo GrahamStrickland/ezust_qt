@@ -1,4 +1,5 @@
 #include <QTextStream>
+
 #include "thing.h"
 
 void display(Thing t, int n) {
@@ -7,15 +8,18 @@ void display(Thing t, int n) {
         t.show();
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     QTextStream cout(stdout);
     Thing t1, t2;
+
     t1.set(23, 'H');
     t2.set(1234, 'w');
     t1.increment();
     cout << t1.getNumber();
     display(t1, 3);
-    //cout << i << endl;
+    //cout << i << Qt::endl;
     t2.show();
-    return 0;
+
+    return EXIT_SUCCESS;
 }
+
