@@ -1,13 +1,7 @@
 #ifndef DATE_H
 #define DATE_H
 
-// This is the interface for the class Date, which stores a
-//  date as a single integer representing the number of days
-//  since the static variable s_BaseDate.
-
 #include <string>
-
-using namespace std;
 
 class Date {
 public:
@@ -25,7 +19,7 @@ public:
         // Precondition: y, m, and d refer to a valid date.
         // Postcondition: m_DaysSinceBaseDate assigned value.
 
-    string toString(bool brief);
+    std::string toString(bool brief);
         // Function to return a string representing the date.
         // Postcondition: If brief == true; date in format yyyy/mm/dd
         //  returned; else Month Day, Year (e.g. Jan 1, 1900) returned.
@@ -34,7 +28,7 @@ public:
         // Function to set the date to today's date.
         // Postcondition: m_DaysSinceBaseDate assigned value.
 
-    string getWeekDay() const;
+    std::string getWeekDay() const;
         // Function to return the name of the day of the week.
         // Postcondition: Returned string representing the day's name.
 
@@ -63,7 +57,7 @@ public:
         // Postcondition: Returned true if year represents
         //  a leap year; else false.
 
-    static string monthName(int month);
+    static std::string monthName(int month);
         // Function to return a 3-character string representing the 
         //  name of the month.
         // Postcondition: Returned string representing month.
@@ -89,3 +83,4 @@ private:
     // Postcondition: y = year, m = moth, d = date.
 };
 #endif // DATE_H
+       

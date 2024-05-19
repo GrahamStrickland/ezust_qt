@@ -1,13 +1,8 @@
-// This is the implementation of the class Date.
-// The interface is in the file date.h
-
-#include "date.h"
-
 #include <time.h>
 #include <cassert>
 #include <iostream>
 
-using namespace std;
+#include "date.h"
 
 int Date::s_BaseYear = 1900;
 
@@ -31,30 +26,30 @@ void Date::set(int y, int m, int d)
     m_DaysSinceBaseDate = ymd2dsbd(y, m, d);
 }
 
-string Date::toString(bool brief)
+std::string Date::toString(bool brief)
 {
     int y, m, d;
-    string yearString = "", monthString = "", dayString = "", 
-           dateString = "";
+    std::string yearString = "", monthString = "", dayString = "", 
+                dateString = "";
 
     // Get year, month, and day as integers.
     YMD(y, m, d);
 
     for (int i = 0, exp = 1000; i < 4; i++) {  // Convert year to string.
-        yearString += to_string(y/exp);
+        yearString += std::to_string(y/exp);
         y %= exp;
         exp /= 10;
     }
 
     for (int i = 0, exp = 10; i < 2; i++) {    // Convert day to string.
-        dayString += to_string(d/exp);
+        dayString += std::to_string(d/exp);
         d %= exp;
         exp /= 10;
     }
 
     if (brief) {    // Brief output format: "yyyy/mm/dd"
         for (int i = 0, exp = 10; i < 2; i++) {  // Convert month to string.
-            monthString += to_string(m/exp);
+            monthString += std::to_string(m/exp);
             m %= exp;
             exp /= 10;
         }
@@ -78,10 +73,10 @@ void Date::setToToday()
     set(1900 + tp->tm_year, 1 + tp->tm_mon, tp->tm_mday);
 }
 
-string Date::getWeekDay() const
+std::string Date::getWeekDay() const
 {
     int dayInt;
-    string dayString;
+    std::string dayString;
 
     // Get int value of day of week.
     dayInt = m_DaysSinceBaseDate % 7;
@@ -176,9 +171,9 @@ bool Date::leapYear(int year)
     else return false;
 }
 
-string Date::monthName(int month)
+std::string Date::monthName(int month)
 {
-    string monthString;
+    std::string monthString;
 
     // Check for valid entry.
     assert(month > 0 && month <= 12);
@@ -304,3 +299,4 @@ void Date::YMD(int& y, int& m, int& d)
         m++;
     }
 }
+
