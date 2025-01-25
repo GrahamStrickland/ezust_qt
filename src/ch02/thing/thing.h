@@ -3,15 +3,14 @@
 
 class Thing {
 public:
-    void set(int num, char c);
-    void increment();
-    void show();
-    int getNumber() const;
-    char getCharacter() const;
+  void set(int num, char c);
+  void increment();
+  void show();
+  int getNumber() const;
+  char getCharacter() const;
 
 private:
-    int m_number;
-    char m_character;
+  int m_number;
+  char m_character;
 };
 #endif // THING_H
-

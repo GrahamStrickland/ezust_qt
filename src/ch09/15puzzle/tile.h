@@ -3,13 +3,12 @@
 
 #include <QPushButton>
 
-class Tile : public QPushButton
-{
-    Q_OBJECT
+class Tile : public QPushButton {
+  Q_OBJECT
 public:
-    explicit Tile(int tileNumber, QWidget *parent = 0);
+  explicit Tile(int tileNumber, QWidget *parent = 0);
 
-    int m_Number;
+  int m_Number;
 };
 
 #endif // TILE_H

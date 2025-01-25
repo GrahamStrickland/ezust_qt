@@ -5,21 +5,17 @@
 
 class ArgumentList : public QStringList {
 public:
-    ArgumentList();
+  ArgumentList();
 
-    ArgumentList(int argc, char* argv[]) {
-        argsToStringList(argc, argv);
-    }
+  ArgumentList(int argc, char *argv[]) { argsToStringList(argc, argv); }
 
-    ArgumentList(const QStringList& argumentList) :
-        QStringList(argumentList) {}
+  ArgumentList(const QStringList &argumentList) : QStringList(argumentList) {}
 
-    bool getSwitch(QString option);
+  bool getSwitch(QString option);
 
-    QString getSwitchArg(QString option,
-                          QString defaultRetVal=QString());
+  QString getSwitchArg(QString option, QString defaultRetVal = QString());
 
 private:
-    void argsToStringList(int argc, char* argv[]);
+  void argsToStringList(int argc, char *argv[]);
 };
-#endif //ARGUMENTLIST_H
+#endif // ARGUMENTLIST_H

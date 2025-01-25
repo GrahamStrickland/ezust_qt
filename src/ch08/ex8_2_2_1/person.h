@@ -3,13 +3,13 @@
 
 #include <QObject>
 #include <QString>
-//start
+// start
 
 class Person : public QObject {
- public:
-    explicit Person(QString name, QObject* parent = 0);
-    virtual ~Person();
+public:
+  explicit Person(QString name, QObject *parent = 0);
+  virtual ~Person();
 };
-//end
+// end
 
 #endif

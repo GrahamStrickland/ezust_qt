@@ -3,21 +3,21 @@
 
 #include <QString>
 
-class RandomString
-{
+class RandomString {
 public:
-    RandomString(int len = 0);
+  RandomString(int len = 0);
 
-    QString generateString();
-    QString generateString(int len);
+  QString generateString();
+  QString generateString(int len);
 
-    void setStringLength(int len);
-    int getStringLength();
-    bool isMatch(QString responseStr);
-    int numCorrectChars(QString responseStr);
+  void setStringLength(int len);
+  int getStringLength();
+  bool isMatch(QString responseStr);
+  int numCorrectChars(QString responseStr);
+
 private:
-    int m_stringLength;
-    QString m_randomString;
+  int m_stringLength;
+  QString m_randomString;
 };
 
 #endif // RANDOMSTRING_H

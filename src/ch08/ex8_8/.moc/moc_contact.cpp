@@ -6,10 +6,10 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../contact.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
+#include <memory>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'contact.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
@@ -22,74 +22,66 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Contact_t {
-    QByteArrayData data[1];
-    char stringdata0[8];
+  QByteArrayData data[1];
+  char stringdata0[8];
 };
-#define QT_MOC_LITERAL(idx, ofs, len) \
-    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_Contact_t, stringdata0) + ofs \
-        - idx * sizeof(QByteArrayData)) \
-    )
+#define QT_MOC_LITERAL(idx, ofs, len)                                          \
+  Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(                     \
+      len, qptrdiff(offsetof(qt_meta_stringdata_Contact_t, stringdata0) +      \
+                    ofs - idx * sizeof(QByteArrayData)))
 static const qt_meta_stringdata_Contact_t qt_meta_stringdata_Contact = {
     {
-QT_MOC_LITERAL(0, 0, 7) // "Contact"
+        QT_MOC_LITERAL(0, 0, 7) // "Contact"
 
     },
-    "Contact"
-};
+    "Contact"};
 #undef QT_MOC_LITERAL
 
 static const uint qt_meta_data_Contact[] = {
 
- // content:
-       8,       // revision
-       0,       // classname
-       0,    0, // classinfo
-       0,    0, // methods
-       0,    0, // properties
-       0,    0, // enums/sets
-       0,    0, // constructors
-       0,       // flags
-       0,       // signalCount
+    // content:
+    8,    // revision
+    0,    // classname
+    0, 0, // classinfo
+    0, 0, // methods
+    0, 0, // properties
+    0, 0, // enums/sets
+    0, 0, // constructors
+    0,    // flags
+    0,    // signalCount
 
-       0        // eod
+    0 // eod
 };
 
-void Contact::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-    (void)_o;
-    (void)_id;
-    (void)_c;
-    (void)_a;
+void Contact::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
+                                 void **_a) {
+  (void)_o;
+  (void)_id;
+  (void)_c;
+  (void)_a;
 }
 
-QT_INIT_METAOBJECT const QMetaObject Contact::staticMetaObject = { {
-    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
-    qt_meta_stringdata_Contact.data,
-    qt_meta_data_Contact,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+QT_INIT_METAOBJECT const QMetaObject Contact::staticMetaObject = {
+    {QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+     qt_meta_stringdata_Contact.data, qt_meta_data_Contact, qt_static_metacall,
+     nullptr, nullptr}};
 
-
-const QMetaObject *Contact::metaObject() const
-{
-    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+const QMetaObject *Contact::metaObject() const {
+  return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject()
+                                    : &staticMetaObject;
 }
 
-void *Contact::qt_metacast(const char *_clname)
-{
-    if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_Contact.stringdata0))
-        return static_cast<void*>(this);
-    return QObject::qt_metacast(_clname);
+void *Contact::qt_metacast(const char *_clname) {
+  if (!_clname)
+    return nullptr;
+  if (!strcmp(_clname, qt_meta_stringdata_Contact.stringdata0))
+    return static_cast<void *>(this);
+  return QObject::qt_metacast(_clname);
 }
 
-int Contact::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
-{
-    _id = QObject::qt_metacall(_c, _id, _a);
-    return _id;
+int Contact::qt_metacall(QMetaObject::Call _c, int _id, void **_a) {
+  _id = QObject::qt_metacall(_c, _id, _a);
+  return _id;
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

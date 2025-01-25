@@ -1,9 +1,8 @@
 #include "puzzlewindow.h"
-#include <QGridLayout>
 #include <QButtonGroup>
+#include <QGridLayout>
 
-PuzzleWindow::PuzzleWindow(PuzzleView* view, QWidget *parent) :
-    QMainWindow(parent), m_PuzzleView(view)
-{
-    //Body deliberately blank.
+PuzzleWindow::PuzzleWindow(PuzzleView *view, QWidget *parent)
+    : QMainWindow(parent), m_PuzzleView(view) {
+  // Body deliberately blank.
 }
